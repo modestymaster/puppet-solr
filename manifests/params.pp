@@ -57,6 +57,7 @@ class solr::params {
   }
 
   $config_file = $::operatingsystem ? {
+    /(?i:RedHat|Fedora|CentOS)/ => '/etc/solr/apache-solr-3.5.0/example/solr/conf/solrconfig.xml',
     default => '/etc/solr/conf/solrconfig.xml',
   } 
 
