@@ -22,9 +22,7 @@ class solr::install inherits solr {
     }
 
     source: {
-      if ! defined(Package['wget']) {
-        package { 'wget' : ensure => installed }
-      }
+      ensure_packages(['wget'])
       puppi::netinstall { 'netinstall_solr':
         url                 => $solr::install_source,
         destination_dir     => $solr::install_destination,
